@@ -47,6 +47,20 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
+router.get('/user/:id', async (req, res) => {
+  try {
+    const user_id = await User.findByPk(req.params.id);
+
+    const user = user_id.get({ plain: true });
+
+    res.render('User', { user });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {

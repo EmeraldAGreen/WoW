@@ -24,13 +24,13 @@ Workout.init(
       defaultValue: DataTypes.NOW,
       
     },
-    tag: {
-      type: DataTypes.INTEGER,
-      referances: {
-        model: tag,
-        key: id
-      }
-    },
+    // tag: {
+    //   type: DataTypes.INTEGER,
+    //   referances: {
+    //     model: tag,
+    //     key: id
+    //   }
+    
     user_id: {
       type: DataTypes.INTEGER,
       references: {
