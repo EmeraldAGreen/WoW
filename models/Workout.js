@@ -11,18 +11,25 @@ Workout.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    // TITLE OF WORKOUT
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // WORKOUT
     description: {
       type: DataTypes.STRING,
+    },
+    duration: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    // TODO: Reference Tags.JS Model
     user_id: {
       type: DataTypes.INTEGER,
       references: {
