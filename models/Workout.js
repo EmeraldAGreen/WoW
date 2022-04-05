@@ -22,6 +22,14 @@ Workout.init(
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
+      
+    },
+    tag: {
+      type: DataTypes.INTEGER,
+      referances: {
+        model: tag,
+        key: id
+      }
     },
     user_id: {
       type: DataTypes.INTEGER,
