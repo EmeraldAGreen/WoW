@@ -62,6 +62,8 @@ router.get('/user/:id', async (req, res) => {
 
 
 
+
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -71,5 +73,26 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+// get all users
+router.get('/user/:id', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+      order: [['name', 'ASC']],
+    });
+
+    const users = userData.map((user) => user.get({ plain: true }));
+
+      res.render('profile', {
+        users,
+       
+        logged_in: req.session.logged_in,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+
 
 module.exports = router;
