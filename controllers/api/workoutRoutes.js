@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
             'comment',
             'workout_id',
             'user_id',
-            'created',
+            'created_at',
           ],
           include: { model: User, attributes: ['name'] }
         },
@@ -29,6 +29,29 @@ router.get('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// THIS WAS ORIGINALLY IN HOMEROUTES
+// router.get('/workout/:id', async (req, res) => {
+//   try {
+//     const workoutData = await workout.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['name'],
+//         },
+//       ],
+//     });
+
+//     const workout = workoutData.get({ plain: true });
+
+//     res.render('workout', {
+//       ...workout,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // /api/workouts/:id
 // GET a single location
