@@ -1,32 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/', async (req, res) => {
-  try {
-    const userData = await user.findAll({
-      attributes: {exclude: ['password']},
-      include: [
-        { model: User, attributes: ['name'] },
-        {
-          model: Comment,
-          attributes: [
-            'id',
-            'comment',
-            'blog_id',
-            'user_id',
-            'date_created',
-          ],
-          include: { model: User, attributes: ['name'] },
-        },
-      ],
-    });
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.post('/new', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -72,18 +47,7 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
-router.get('/user/:id', async (req, res) => {
-  try {
-    const user_id = await User.findByPk(req.params.id);
 
-    const user = user_id.get({ plain: true });
-
-    res.render('User', { user });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 
 
@@ -99,7 +63,7 @@ router.post('/logout', (req, res) => {
   }
 });
 // get all users
-router.get('/user/:id', withAuth, async (req, res) => {
+router.get('/user/:id', async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
