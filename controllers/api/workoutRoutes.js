@@ -64,7 +64,7 @@ router.post('/new', withAuth, async (req, res) => {
   }
 });
 
-// Delete a workout
+// Delete a workout by ID
 // /api/workouts/:id
 router.delete('/:id', withAuth, async (req, res) => {
   try {
