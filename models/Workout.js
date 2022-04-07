@@ -22,6 +22,7 @@ Workout.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+
     tag_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -29,6 +30,7 @@ Workout.init(
         key: 'id',
       },
     },
+
     user_id: {
       type: DataTypes.INTEGER,
       references: {
