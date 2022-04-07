@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Comment, Workout, Tag } = require('../../models');
 
 router.get('/', async (req, res) => {
   try {
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
           attributes: [
             'id',
             'comment',
-            'blog_id',
+            'workout_id',
             'user_id',
             'date_created',
           ],
