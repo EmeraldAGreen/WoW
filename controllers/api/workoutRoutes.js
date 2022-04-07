@@ -1,17 +1,36 @@
 const router = require('express').Router();
-const { Workout } = require('../../models');
+const { Workout, Comment, Tag, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // GET all locations
+// /api/workouts
 router.get('/', async (req, res) => {
   try {
-    const workoutData = await Workout.findAll();
+    const workoutData = await Workout.findAll({
+      attributes: [], 
+      order: [['created', 'DESC']],
+      include: [
+        { model: User, attributes: ['name'] },
+        {
+          model: Comment,
+          attributes: [
+            'id',
+            'comment',
+            'workout_id',
+            'user_id',
+            'created',
+          ],
+          include: { model: User, attributes: ['name'] }
+        },
+      ],
+    });
     res.status(200).json(workoutData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// /api/workouts/:id
 // GET a single location
 // router.get('/:id', async (req, res) => {
 //   try {
@@ -31,8 +50,9 @@ router.get('/', async (req, res) => {
 //   }
 // });
 
-
-router.post('/', withAuth, async (req, res) => {
+// Create a new workout post
+// /api/workouts/new
+router.post('/new', withAuth, async (req, res) => {
   try {
     const newWorkout = await Workout.create({
       ...req.body,
@@ -44,6 +64,8 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// Delete a workout
+// /api/workouts/:id
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const workoutData = await Workout.destroy({
