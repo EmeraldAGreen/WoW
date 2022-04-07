@@ -11,12 +11,18 @@ Workout.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    // TITLE OF WORKOUT
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    // WORKOUT
     description: {
       type: DataTypes.STRING,
+    },
+    duration: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     date_created: {
       type: DataTypes.DATE,
@@ -24,13 +30,12 @@ Workout.init(
       defaultValue: DataTypes.NOW,
       
     },
-    // tag: {
-    //   type: DataTypes.INTEGER,
-    //   referances: {
-    //     model: tag,
-    //     key: id
-    //   }
-    
+     tag: {
+      type: DataTypes.INTEGER,
+       referances: {
+       model: tag,
+       key: id
+      },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
