@@ -1,7 +1,32 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
+  try {
+    const userData = await user.findAll({
+      attributes: {exclude: ['password']},
+      include: [
+        { model: User, attributes: ['name'] },
+        {
+          model: Comment,
+          attributes: [
+            'id',
+            'comment',
+            'blog_id',
+            'user_id',
+            'date_created',
+          ],
+          include: { model: User, attributes: ['name'] },
+        },
+      ],
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post('/new', async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
