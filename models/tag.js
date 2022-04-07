@@ -1,56 +1,28 @@
-// const { Model, DataTypes } = require('sequelize');
-// const sequelize = require('../config/connection');
+const { Model, DataTypes } = require('sequelize');
 
-// class tag extends Model {}
+const sequelize = require('../config/connection.js');
 
-// tag.init (
-//     {
-//         id: {
-//             type: DataTypes.INTEGER,
-//             allowNull: false,
-//             primaryKey: true,
-//             autoIncrement: true
-//         },
-//         Upper_Body: {
-//             type: DataTypes.BOOLEAN,
-//         },
-//         Lower_Body: {
-//             type: DataTypes.BOOLEAN,
-//         },
-//         Core_Abs: {
-//             type: DataTypes.BOOLEAN,
-//         },
-//         Beginner: {
-//             type: DataTypes.BOOLEAN,
-//         },
-//         Intermediate: {
-//             type: DataTypes.BOOLEAN,
-//         },
-//         Advanced: {
-//             type: DataTypes.BOOLEAN,
-//         },
-//         Mobility: {
-//             type: DataTypes.BOOLEAN,
-//         },
-//         Strength: {
-//             type: DataTypes.BOOLEAN,
-//         },
-//         Cardio: {
-//             type: DataTypes.BOOLEAN,
-//         },
-//         High_Impact: {
-//             type: DataTypes.BOOLEAN,
-//         },
-//     },
+class Tag extends Model {}
 
+Tag.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    tag_name: {
+      type: DataTypes.STRING,
+    }
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'tag',
+  }
+);
 
-// {
-//         sequelize,
-//         timestamps: false,
-//         freezeTableName: true,
-//         underscored: true,
-//         modelName: 'tag',
-//       }
-//     );
-    
-//     module.exports = tag;
+module.exports = Tag;
