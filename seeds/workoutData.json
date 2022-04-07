@@ -2,17 +2,24 @@
   {
     "name": "Core Circuit",
     "description": "Sample Workout",
-    "duration": 25
+    "duration": 25,
+    "tag_id": 1,
+    "user_id": 1
+
   },
   {
     "name": "Upper Body Burner",
     "description": "Sample Workout",
-    "duration": 30
+    "duration": 30,
+    "tag_id": 2,
+    "user_id": 2
   },
   {
     "name": "Leg Lift",
     "description": "Sample Workout",
-    "duration": 60
+    "duration": 60,
+    "tag_id": 3,
+    "user_id": 3
   }
 ]
 
