@@ -20,10 +20,14 @@ router.get('/', async (req, res) => {
       });
 
       // Serialize data so the template can read it
-      const workouts = workoutData.map((workout) => workout.get({ plain: true }));
+      const workouts = workoutData.map((allWorkouts) => allWorkouts.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.status(200).render('home');
+    res.render('homepage', {
+      workouts, 
+      logged_in: req.session.logged_in, 
+      username: req.session.username,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
