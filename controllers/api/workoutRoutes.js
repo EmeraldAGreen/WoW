@@ -7,8 +7,8 @@ const withAuth = require('../../utils/auth');
 router.get('/', async (req, res) => {
   try {
     const workoutData = await Workout.findAll({
-      attributes: [], 
-      order: [['created', 'DESC']],
+      attributes: ['id', 'name', 'description', 'duration'], 
+      order: [['created_at', 'DESC']],
       include: [
         { model: User, attributes: ['name'] },
         {
@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 });
 
 // THIS WAS ORIGINALLY IN HOMEROUTES
-// router.get('/workout/:id', async (req, res) => {
+// router.get('/workouts/:id', async (req, res) => {
 //   try {
 //     const workoutData = await workout.findByPk(req.params.id, {
 //       include: [

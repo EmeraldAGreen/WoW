@@ -1,24 +1,11 @@
 const router = require('express').Router();
 const { User, Comment, Workout, Tag } = require('../../models');
 
+// users/
 router.get('/', async (req, res) => {
   try {
     const userData = await user.findAll({
       attributes: {exclude: ['password']},
-      include: [
-        { model: User, attributes: ['name'] },
-        {
-          model: Comment,
-          attributes: [
-            'id',
-            'comment',
-            'workout_id',
-            'user_id',
-            'created_at',
-          ],
-          include: { model: User, attributes: ['name'] },
-        },
-      ],
     });
     res.status(200).json(userData);
   } catch (err) {
@@ -26,6 +13,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// /users/new
 router.post('/new', async (req, res) => {
   try {
     const userData = await User.create(req.body);
@@ -41,6 +29,7 @@ router.post('/new', async (req, res) => {
   }
 });
 
+// /users/login
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -73,11 +62,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
-
-
-
-
+// users/logout
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -87,8 +72,10 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-// get all users
-router.get('/user/:id', async (req, res) => {
+
+// get all user by id
+// users/:id
+router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
