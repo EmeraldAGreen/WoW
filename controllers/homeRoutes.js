@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
   console.log('we made it! ')
   try {
       // Get all workouts and JOIN with user data
-      const workoutData = await workout.findAll({
+      const workoutData = await Workout.findAll({
         attributes: ['id', 'name', 'description', 'duration', 'tag_id', 'user_id', 'created_at'],
         include: [
           {
@@ -33,13 +33,13 @@ router.get('/', async (req, res) => {
       const workouts = workoutData.map((allWorkouts) => allWorkouts.get({ plain: true }));
 console.log(workouts);
     // Pass serialized data and session flag into template
-    res.render('homepage', {
+    res.render('home', {
       workouts, 
       logged_in: req.session.logged_in, 
       username: req.session.username,
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 });
 

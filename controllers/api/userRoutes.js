@@ -4,7 +4,7 @@ const { User, Comment, Workout, Tag } = require('../../models');
 // users/
 router.get('/', async (req, res) => {
   try {
-    const userData = await user.findAll({
+    const userData = await User.findAll({
       attributes: {exclude: ['password']},
     });
     res.status(200).json(userData);
@@ -25,7 +25,7 @@ router.post('/new', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).send(err.message);
   }
 });
 
