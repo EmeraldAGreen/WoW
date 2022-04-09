@@ -25,7 +25,6 @@ router.get('/', (req, res) => {
     res.redirect('/my-workouts');
     return;
   }
-
   res.render('login');
 });
 
