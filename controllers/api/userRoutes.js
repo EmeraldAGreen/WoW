@@ -79,12 +79,14 @@ router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
+      where: {
+       id: req.params.id 
+      },
     });
 
     const users = userData.map((user) => user.get({ plain: true }));
 
-      res.render('profile', {
+      res.render('my-workouts', {
         users,
        
         logged_in: req.session.logged_in,
