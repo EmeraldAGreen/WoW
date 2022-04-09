@@ -16,7 +16,11 @@ router.get('/', async (req, res) => {
 // /users/new
 router.post('/new', async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    const userData = await User.create({
+      username: req.body.name,
+      email: req.body.email,
+      password: req.body.password
+    });
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -79,12 +83,14 @@ router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
+      where: {
+       id: req.params.id 
+      },
     });
 
     const users = userData.map((user) => user.get({ plain: true }));
 
-      res.render('profile', {
+      res.render('my-workouts', {
         users,
        
         logged_in: req.session.logged_in,
