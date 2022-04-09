@@ -16,12 +16,14 @@ body, html {
     position: relative;
   }
 
+.hero-text {
+  font-family: 'Bruno Ace', sans-serif;
+  font-size: 550%;
+  color: black;
+  justify-content: center;
+};
 
-/* position the Log In button */
-/* .homebtn1 {
-   
-} */
-/* position the Sign Up button */
-/* .homebtn2 {
-    
-} */
+#greeting {
+  margin-right: 38rem;
+};
+
