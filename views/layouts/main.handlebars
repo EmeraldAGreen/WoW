@@ -33,7 +33,7 @@
           {{#if logged_in}} 
           <a class="nav-link" href="/" id="logout">Logout {{name}}</a>
           {{else}}
-          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link" href="/login" id="login">Login</a>
           {{/if}}
         </li> 
     </ul>
@@ -46,7 +46,7 @@
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="../public/js/logout.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}} 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
