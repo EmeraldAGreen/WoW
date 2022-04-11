@@ -2,8 +2,13 @@
 {{#if workouts.length}}
    <div class="hero-image container-fluid position-absolute" id="hero2">
             <div class="hero-text row align-items-center">Dashboard</div>
+<div class="row row-cols-1 row-cols-md-2 g-4">  
     {{#each workouts as |workout|}}
+    <div class="col">
     {{>workout-card workout}}
+    </div>
     {{/each}}
-</div>
+</div>       
+    </div>
 {{/if}}
+    
