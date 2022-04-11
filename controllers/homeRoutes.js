@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 // /home
 router.get('/', async (req, res) => {
   // Pass serialized data and session flag into template
-  res.render('home');
+  res.render('home', { logged_in: req.session.logged_in });
 });
 
 // /dashboard
@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('login', { logged_in: req.session.logged_in });
 });
 
 router.get('/', (req, res) => {
@@ -25,10 +25,10 @@ router.get('/', (req, res) => {
     res.redirect('/my-workouts');
     return;
   }
-
-  res.render('login');
+  res.render('login', { logged_in: req.session.logged_in });
 });
 
+// logs the user in
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
@@ -36,7 +36,7 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('login', { logged_in: req.session.logged_in });
 });
 
 router.get('/signup', (req, res) => {

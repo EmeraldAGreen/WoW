@@ -25,7 +25,14 @@ router.get('/', withAuth, async (req, res) => {
         },
       ],
     });
-    res.status(200).json(workoutData);
+    const workouts = workoutData.map((allWorkouts) => allWorkouts.get({ plain: true }));
+    console.log(workouts);
+    // Pass serialized data and session flag into template
+    res.render('my-workouts', {
+      workouts,
+      logged_in: req.session.logged_in,
+      username: req.session.name,
+    });
   } catch (err) {
     res.status(500).json(err.message);
   }

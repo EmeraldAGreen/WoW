@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
         res.render('dashboard', {
             workouts,
             logged_in: req.session.logged_in,
-            username: req.session.username,
+            username: req.session.name,
         });
     } catch (err) {
         res.status(500).json(err.message);

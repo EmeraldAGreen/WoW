@@ -12,17 +12,17 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-
     if (response.ok) {
       // If successful, redirect the browser to the profile page
       document.location.replace('/');
     } else {
+      //get rid of alert, render dynamically "wrong password"
       alert('Failed to log in');
     }
   }
 };
 
 document
-.querySelector('.login-form')
-.addEventListener('submit', loginFormHandler);
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
 
