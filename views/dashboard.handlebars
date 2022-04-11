@@ -1,5 +1,9 @@
 {{!-- render each (for each) workout post in a carosel view --}}
-
-    <div class="hero-image container-fluid position-absolute" id="hero2">
+{{#if workouts.length}}
+   <div class="hero-image container-fluid position-absolute" id="hero2">
             <div class="hero-text row align-items-center">Dashboard</div>
-        </div>
+    {{#each workouts as |workout|}}
+    {{>workout-card workout}}
+    {{/each}}
+</div>
+{{/if}}
