@@ -17,7 +17,7 @@ async function workoutFormHandler(event) {
     .querySelector('#workout-duration')
     .value.trim();
   
-    if (name, description, duration) {
+    if (name && description && duration) {
       const response = await fetch('/dashboard/new', {
         method: 'POST',
         body: JSON.stringify({
