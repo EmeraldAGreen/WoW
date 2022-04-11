@@ -3,7 +3,8 @@ const { User, Workout, Tag, WorkoutTag, Comment} = require('../models');
 
 const userData = require('./userData.json');
 const workoutData = require('./workoutData.json');
-const tagData = require('./tagData.json')
+const tagData = require('./tagData.json');
+const commentData = require('./commentData.json');
 
 
 const seedDatabase = async () => {
@@ -20,6 +21,14 @@ const seedDatabase = async () => {
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
+
+  for (const comment of commentData) {
+    await  Comment.bulkCreate({
+      ...comment,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
+
 
   process.exit(0);
 };
