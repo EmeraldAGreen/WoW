@@ -26,7 +26,6 @@ router.get('/', withAuth, async (req, res) => {
       ],
     });
     const workouts = workoutData.map((allWorkouts) => allWorkouts.get({ plain: true }));
-    console.log(workouts);
     // Pass serialized data and session flag into template
     res.render('my-workouts', {
       workouts,
@@ -40,20 +39,20 @@ router.get('/', withAuth, async (req, res) => {
 
 // Create a new workout post
 // /api/workouts/new
-router.post('/new', withAuth, async (req, res) => {
-  try {
-    const newWorkout = await Workout.create(req.body);
-    req.session.save(() => {
-      req.session.user_id = newWorkout.id;
-      req.session.logged_in = true;
-      res.render('add-workout', { newWorkout, logged_in: true, username: req.session.name });
-    });
+// router.post('/new', withAuth, async (req, res) => {
+//   try {
+//     const newWorkout = await Workout.create(req.body);
+//     req.session.save(() => {
+//       req.session.user_id = newWorkout.id;
+//       req.session.logged_in = true;
+//       res.render('add-workout', { newWorkout, logged_in: true, username: req.session.name });
+//     });
 
-    res.status(200).json(newWorkout);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     res.status(200).json(newWorkout);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 // Delete a workout by ID
 // /api/workouts/:id
