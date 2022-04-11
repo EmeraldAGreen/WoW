@@ -1,28 +1,47 @@
-
 <div class="login card">
-  <div class="card-body">
-    <h2 class="card-header">Sign Up</h2>
-
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">Username:</label>
-        <input class="form-input" type="text" id="name-signup" />
+    <div class="card-body">
+      <h2 class="card-header">Sign Up</h2>
+      <div class="container">
+        <form class="form signup-form">
+          <div class="form-group">
+            <div class="row g-3 align-items-center">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <label for="name-signup" class="col-form-label">Username:</label>
+              </div>
+              <div class="col-auto">
+                <input type="text" id="name-signup" class="form-input" aria-describedby="nameHelpInline">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <label for="email-signup" class="col-form-label">Email: </label>
+              </div>
+              <div class="col-auto">
+                <input type="text" id="email-signup" class="form-input" aria-describedby="emailHelpInline">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row g-3 align-items-center">
+              <div class="col-auto">
+                <label for="password-signup" class="col-form-label">Password: </label>
+              </div>
+              <div class="col-auto">
+                <input type="passwprd" id="password-signup" class="form-input" aria-describedby="passwordHelpInline">
+              </div>
+            </div>
+            <div class="form-group d-flex justify-content-end">
+              <button class="btn btn-primary" type="submit" id="login-button">Sign Up</button>
+            </div>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="email-signup">Email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">Password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Sign Up</button>
-      </div>
-      </form>
-   
-    </div>
-</div>
+ </div>
 
 <script src="/js/signup.js"></script>
 
