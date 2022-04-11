@@ -1,0 +1,21 @@
+
+[ 
+  {
+    "title": "Hello",
+    "comment": "hey there",
+    "workout_id": 1,
+    "user_id": 1
+  },
+  {
+    "title": "Whattup",
+    "comment": "whattup my guy",
+    "workout_id": 2,
+    "user_id": 2
+  },
+  {
+    "title": "Goodbye",
+    "comment": "peace biotch",
+    "workout_id": 3,
+    "user_id": 3
+  }
+]
