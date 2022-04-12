@@ -14,10 +14,12 @@ router.get('/', async (req, res) => {
                     model: Comment,
                     attributes: [
                         'id',
+                        'title',
                         'comment',
                         'workout_id',
                         'user_id',
-                        'created_at'],
+                        'created_at'
+                    ],
                     include: {
                         model: User,
                         attributes: ['name'],
@@ -48,26 +50,5 @@ router.get('/new', async (req, res) => {
             username: req.session.name,
         });
 });
-
-// Create a new workout post
-router.post('/new', withAuth, async (req, res) => {
-    try {
-      const newWorkout = await Workout.create(req.body);
-      req.session.save(() => {
-        req.session.user_id = newWorkout.id;
-        req.session.logged_in = true;
-        res.render('add-workout', { newWorkout, logged_in: true, username: req.session.name });
-      });
-      console.log(newWorkout);
-        const workout = newWorkout.get({ plain: true });
-        
-            res.render('dashboard', {
-              ...workout,
-              logged_in: req.session.logged_in
-            });
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
 
 module.exports = router;

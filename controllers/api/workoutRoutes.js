@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
           model: Comment,
           attributes: [
             'id',
+            'title',
             'comment',
             'workout_id',
             'user_id',
@@ -83,7 +84,7 @@ router.post('/new', withAuth, async (req, res) => {
     });
     res.status(200).json(newWorkout);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json(err.message);
   }
 });
 

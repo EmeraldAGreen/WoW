@@ -1,6 +1,6 @@
 async function workoutFormHandler(event) {
-    event.preventDefault();
-  
+     event.preventDefault();
+    console.log("hit");
     // const tag_name = document
     // .querySelector('.checkbox')
     // .value.trim();
@@ -17,8 +17,10 @@ async function workoutFormHandler(event) {
     .querySelector('#workout-duration')
     .value.trim();
   
+
     if (name && description && duration) {
-      const response = await fetch('/dashboard/new', {
+      const response = await fetch('/api/workouts/new', {
+
         method: 'POST',
         body: JSON.stringify({
           name,
