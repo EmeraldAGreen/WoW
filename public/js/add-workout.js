@@ -18,7 +18,8 @@ async function workoutFormHandler(event) {
     .value.trim();
   
     if (name && description && duration) {
-      const response = await fetch('/dashboard/new', {
+      const response = await fetch('/api/workouts/new', {
+
         method: 'POST',
         body: JSON.stringify({
           name,
