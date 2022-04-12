@@ -14,10 +14,12 @@ router.get('/', async (req, res) => {
                     model: Comment,
                     attributes: [
                         'id',
+                        'title',
                         'comment',
                         'workout_id',
                         'user_id',
-                        'created_at'],
+                        'created_at'
+                    ],
                     include: {
                         model: User,
                         attributes: ['name'],
