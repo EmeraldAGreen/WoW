@@ -1,9 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
+
 const sequelize = require('../config/connection');
 
-class Workout extends Model {}
+class WorkoutTag extends Model {}
 
-Workout.init(
+WorkoutTag.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,39 +12,28 @@ Workout.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
-    },
-    duration: {
+    workout_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      references: {
+        model: 'workout',
+        key: 'id',
+      }
     },
     tag_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'tag',
         key: 'id',
-      },
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
+      }
+    }
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'workout',
+    modelName: 'workout_tag',
   }
 );
 
-module.exports = Workout;
+module.exports = WorkoutTag;

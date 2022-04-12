@@ -1,7 +1,20 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Comment, Workout, Tag } = require('../../models');
 
-router.post('/', async (req, res) => {
+// users/
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      attributes: {exclude: ['password']},
+    });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// /users/new
+router.post('/new', async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -12,10 +25,11 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).send(err.message);
   }
 });
 
+// /users/login
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -48,6 +62,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// users/logout
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -57,5 +72,30 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+// get all user by id
+// users/:id
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+      where: {
+       id: req.params.id 
+      },
+    });
+
+    const users = userData.map((user) => user.get({ plain: true }));
+
+      res.render('my-workouts', {
+        users,
+       
+        logged_in: req.session.logged_in,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+
 
 module.exports = router;
