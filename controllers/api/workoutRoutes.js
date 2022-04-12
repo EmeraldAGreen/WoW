@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
   try {
     const workoutData = await Workout.findAll({
       attributes: ['id', 'name', 'description', 'duration'], 
-      order: [['created_at', 'DESC']],
       include: [
         { model: User, attributes: ['name'] },
         {
