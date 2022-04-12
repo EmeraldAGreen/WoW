@@ -5,6 +5,9 @@ World of Workouts --DU Coding Camp Project 2
 
 # WoW: World of Workouts
 
+## Deployed Application Link
+[World of Workouts](https://world-of-workouts.herokuapp.com/)
+
 ## Description
 Come along and let's explore the World of Workouts!
 This is a content management system (CMS) style site, where users can publish their workouts, comment on other user's workouts, and view workouts. This app is deployed to Heroku and follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
