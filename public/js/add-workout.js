@@ -17,9 +17,10 @@ async function workoutFormHandler(event) {
     .querySelector('#workout-duration')
     .value.trim();
   
-    if (name, description, duration) {
-      console.log("hit");
+
+    if (name && description && duration) {
       const response = await fetch('/api/workouts/new', {
+
         method: 'POST',
         body: JSON.stringify({
           name,
