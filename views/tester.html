@@ -42,15 +42,17 @@
 
   <main>
   <!-- {{{ body }}} -->
-  <form>
-    <div class="hero-image container-fluid position-absolute" >
-            <div class="hero-text row">World of Workouts </div>
-            <div class="row d-flex justify-content-md-around">
-              <a href="/login" class=" col-2 btn btn-outline-dark m-5 p-3 " id="homebtn1" type="login">Log In</a>
-              <a href="/signup" class="col-2 btn btn-outline-dark m-5 p-3 " id="homebtn2" type="signup">Sign Up</a>
-            </div>
+  <div class="workout card ml-1 mt-3 mb-5 bg-dark text-white border-color-secondary rounded" style="width: 24rem;">
+    <div class="card-body">
+        <h1 class="card-header ">
+         {{name}} Posted by: {{user.name}}
+        </h1>
+        <p class="class-text">{{description}}</p>
+        <div class="card-footer"> 
+        <p class="card-text">Created on: {{format_date created_at}}</p>
         </div>
-    </form>
+    </div>
+</div>
   </main>
 
   <!-- Render script for logged in users only -->
