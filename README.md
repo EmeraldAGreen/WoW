@@ -5,6 +5,9 @@ World of Workouts --DU Coding Camp Project 2
 
 # WoW: World of Workouts
 
+## Deployed Application Link
+[World of Workouts](https://world-of-workouts.herokuapp.com/)
+
 ## Description
 Come along and let's explore the World of Workouts!
 This is a content management system (CMS) style site, where users can publish their workouts, comment on other user's workouts, and view workouts. This app is deployed to Heroku and follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
@@ -31,7 +34,7 @@ You will need to use the following packages:
 **Note**: The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie. When you are idle on the site for more than a set time, the cookie will expire and you will be required to log in again to start a new session. This is the default behavior and you do not have to do anything to your application other than implement the npm package.
 
 ## Usage
-When you visit the site for the first time, you will be presented with the homepage. You are given the option to sign up or log in. Once you have logged in, you can view your "My workouts" tab, which includes existing workout posts if any have been posted. Using the navigation links, you can go to the "Dashboard". When you visit the "Dashboard" option, you are presented with any workout posts that have been created by other users, and the comments saved to those posts. From the dashboard, you can choose to add a new workout post, and you will be prompted to enter the title, contents, and tags for your workout. When you click "Logout", you will be signed out of the site. 
+When you visit the site for the first time, you will be presented with the homepage. You are given the option to sign up or log in. Once you have logged in, you can view your "My workouts" tab, which includes existing workout posts if any have been posted. Using the navigation links, you can go to the "Dashboard". When you visit the "Dashboard" option, you are presented with any workout posts that have been created by other users, and the comments saved to those posts. From the dashboard, you can choose to add a new workout post, and you will be prompted to enter the title, contents, and tags for your workout. When you click "Logout", you will be signed out of the site.
 
 ## License
 This project is licensed under  ISC.
