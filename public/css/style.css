@@ -1,5 +1,6 @@
 body, html {
     height: 100%;
+    background-color: #7D7C7C
 }
 
 .hero-image {
@@ -22,6 +23,9 @@ body, html {
   color: black;
   justify-content: center;
 };
+
+
+
 /* 
 #hero2 {
 

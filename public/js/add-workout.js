@@ -33,7 +33,8 @@ async function workoutFormHandler(event) {
       });
   console.log(response);
       if (response.ok) {
-        document.location.reload();
+        // document.location.reload();
+        window.location = ('/dashboard')
       } else {
         alert(response.statusText);
         document.querySelector('#workout-form').style.display = 'block';
