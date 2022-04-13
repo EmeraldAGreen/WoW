@@ -24,7 +24,11 @@ morgan.token('host', function (req, res) {
 
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
