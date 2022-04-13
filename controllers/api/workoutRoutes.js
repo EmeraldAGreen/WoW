@@ -82,9 +82,11 @@ router.post('/new', withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
     res.status(200).json(newWorkout);
+    // res.redirect('/dashboard');
   } catch (err) {
     res.status(400).json(err.message);
   }
+  
 });
 
 // Delete a workout by ID
