@@ -28,11 +28,18 @@ This is a content management system (CMS) style site, where users can publish th
 
 ## Installation
 You will need to use the following packages: 
-[express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views 
-[MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for Models [express.js](https://www.npmjs.com/package/express) to handle the API for our Controllers.
+[express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views
+
+[MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for Models
+
+[express.js](https://www.npmjs.com/package/express) to handle the API for our Controllers.
+
 [dotenv package](https://www.npmjs.com/package/dotenv) to use environment variables
+
 [bcrypt package](https://www.npmjs.com/package/bcrypt) to hash passwords
+
 [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add authentication.
+
 [morgan](https://www.npmjs.com/package/morgan) to log HTTP requests. Screenshot below.
 ![image](https://user-images.githubusercontent.com/95549495/163289638-4eeba9b8-5c95-4a58-a038-8ada821350f6.png)
 
