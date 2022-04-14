@@ -28,6 +28,7 @@ This is a content management system (CMS) style site, where users can publish th
 
 ## Installation
 You will need to use the following packages: 
+
 [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views
 
 [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for Models
