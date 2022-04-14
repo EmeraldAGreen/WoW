@@ -8,7 +8,7 @@ World of Workouts --DU Coding Camp Project 2
 ## Deployed Application Link
 [World of Workouts](https://world-of-workouts.herokuapp.com/)
 
-##Demo
+## Demo
 https://drive.google.com/file/d/1fcuS8ffaRDay4U_VLtnjhepeoEywC50Q/view
 
 ## Description
