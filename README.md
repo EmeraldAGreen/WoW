@@ -33,6 +33,8 @@ You will need to use the following packages:
 [dotenv package](https://www.npmjs.com/package/dotenv) to use environment variables
 [bcrypt package](https://www.npmjs.com/package/bcrypt) to hash passwords
 [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add authentication.
+[morgan](https://www.npmjs.com/package/morgan) to log HTTP requests. Screenshot below.
+![image](https://user-images.githubusercontent.com/95549495/163289638-4eeba9b8-5c95-4a58-a038-8ada821350f6.png)
 
 **Note**: The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie. When you are idle on the site for more than a set time, the cookie will expire and you will be required to log in again to start a new session. This is the default behavior and you do not have to do anything to your application other than implement the npm package.
 
