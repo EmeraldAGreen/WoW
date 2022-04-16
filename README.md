@@ -8,6 +8,9 @@ World of Workouts --DU Coding Camp Project 2
 ## Deployed Application Link
 [World of Workouts](https://world-of-workouts.herokuapp.com/)
 
+## Demo
+https://drive.google.com/file/d/1fcuS8ffaRDay4U_VLtnjhepeoEywC50Q/view
+
 ## Description
 Come along and let's explore the World of Workouts!
 This is a content management system (CMS) style site, where users can publish their workouts, comment on other user's workouts, and view workouts. This app is deployed to Heroku and follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
@@ -25,11 +28,21 @@ This is a content management system (CMS) style site, where users can publish th
 
 ## Installation
 You will need to use the following packages: 
-[express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views 
-[MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for Models [express.js](https://www.npmjs.com/package/express) to handle the API for our Controllers.
+
+[express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views
+
+[MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for Models
+
+[express.js](https://www.npmjs.com/package/express) to handle the API for our Controllers.
+
 [dotenv package](https://www.npmjs.com/package/dotenv) to use environment variables
+
 [bcrypt package](https://www.npmjs.com/package/bcrypt) to hash passwords
-[express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add authentication.
+
+[express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add authentication
+
+[morgan](https://www.npmjs.com/package/morgan) to log HTTP requests (screenshot below)
+![image](https://user-images.githubusercontent.com/95549495/163289638-4eeba9b8-5c95-4a58-a038-8ada821350f6.png)
 
 **Note**: The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie. When you are idle on the site for more than a set time, the cookie will expire and you will be required to log in again to start a new session. This is the default behavior and you do not have to do anything to your application other than implement the npm package.
 
