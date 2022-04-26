@@ -1,6 +1,7 @@
 async function workoutFormHandler(event) {
     event.preventDefault();
   
+    // do one for each option like;  const core = document.querySelector('#core'). check for boolean, and update w a post
     // const tag_name = document
     // .querySelector('.checkbox')
     // .value.trim();

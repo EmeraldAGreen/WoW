@@ -30,28 +30,43 @@ router.get('/', async (req, res) => {
   }
 });
 
-// THIS WAS ORIGINALLY IN HOMEROUTES
-// router.get('/workouts/:id', async (req, res) => {
-//   try {
-//     const workoutData = await workout.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
+router.get('/:id', async (req, res) => {
+console.log("we're in!")
+console.log(req.params)
+  try {
+    const workoutData = await Workout.findAll({
+      where: {
+        id: req.params.id,
+      },
+      // include: [
+      //   { model: User, attributes: ['name'] },
+      //   {
+      //     model: Comment,
+      //     attributes: [
+      //       'id',
+      //       'comment',
+      //       'workout_id',
+      //       'user_id',
+      //       'created_at',
+      //     ],
+      //     include: { model: User, attributes: ['name'] }
+      //   }
+      // ],
+    });
 
-//     const workout = workoutData.get({ plain: true });
+    // const workout = workoutData.get({ plain: true });
+console.log(workoutData);
 
-//     res.render('workout', {
-//       ...workout,
-//       logged_in: req.session.logged_in
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    // res.render('single-workout', {
+    //   ...workout,
+    //   logged_in: req.session.logged_in
+    // });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+// make sure mysql is seeded with a workout with an id of 1
+// render or line 57 is wrong bc when commented out we get workoutData
 
 // /api/workouts/:id
 // GET a single location

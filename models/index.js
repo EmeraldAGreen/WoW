@@ -14,9 +14,13 @@ Workout.belongsTo(User, {
   onDelete: 'CASCADE'
 });
 
+Workout.belongsToMany(Tag, {
+  through: WorkoutTag
+});
+
 Tag.belongsToMany(Workout, {
   through: WorkoutTag
-})
+});
 
 Workout.hasMany(Comment, {
   foreignKey: 'workout_id',
